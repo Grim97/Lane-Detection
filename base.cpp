@@ -21,7 +21,7 @@ int edgedetection(Mat imagefile)
 
 int main()
 {
-	string path = "C:\\Users\\navee\\OneDrive\\Documents\\Naveen\\Lane.jpg";
+	string path = "Github\\Lane\\Additional filesLane.jpg";
 	Mat imge = imread(path);
 	imshow("Laneimage", imge);
 	//waitKey(50);
