@@ -6,24 +6,35 @@
 using namespace cv;
 using namespace std;
 
+int RegOI(Mat imgroi);
+
 int edgedetection(Mat imagefile)
 {
 	Mat gray, gblur, canny;
 	cvtColor(imagefile, gray, COLOR_BGR2GRAY);
 	GaussianBlur(gray, gblur, Size(11, 11), 0, 0);
 	Canny(gblur, canny, 40, 50);
-	imshow("Grayscale", gray);
-	imshow("Gaussian blur", gblur);
+	//imshow("Grayscale", gray);
+	//imshow("Gaussian blur", gblur);
 	imshow("Canny", canny);
+	waitKey(100);
+	RegOI(canny);
+	return 0;
+}
+
+int RegOI(Mat imgri)
+{
+	imgri = imgri(Rect(300, 300, 150, 150));
+	imshow("Region of interest", imgri);
 	waitKey(0);
 	return 0;
 }
 
 int main()
 {
-	string path = "Github\\Lane\\Additional filesLane.jpg";
+	string path = "C:\\Users\\....\\Lane.jpg";
 	Mat imge = imread(path);
-	imshow("Laneimage", imge);
+	//imshow("Laneimage", imge);
 	//waitKey(50);
 	edgedetection(imge);
 	return 0;
