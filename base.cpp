@@ -24,15 +24,19 @@ int edgedetection(Mat imagefile)
 
 int RegOI(Mat imgri)
 {
-	imgri = imgri(Rect(300, 300, 150, 150));
+	Mat thrshld;
+	imgri = imgri(Rect(50, 50, 500, 500));
 	imshow("Region of interest", imgri);
+	//threshold(imgri, thrshld, 150, 255, THRESH_TOZERO); //applying threshold function to solidly map values above 150
+	//imshow("Thresholded image", thrshld);
+	//in this module no big changes were observed. Hence for optimizatioon commented for now.
 	waitKey(0);
 	return 0;
 }
 
 int main()
 {
-	string path = "C:\\Users\\....\\Lane.jpg";
+	string path = "C:\\Users\\navee\\OneDrive\\Documents\\Naveen\\Lane.jpg";
 	Mat imge = imread(path);
 	//imshow("Laneimage", imge);
 	//waitKey(50);
